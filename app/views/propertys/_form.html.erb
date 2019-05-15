@@ -1,32 +1,38 @@
 <%= form_for property,url: propertys_path do |f| %>
 
   <div class="field">
-    <%= f.label :物件名 %>
+    <%= f.label :物件名 %><br>
     <%= f.text_field :name, id: :property_name%>
   </div>
 
   <div class="field">
-    <%= f.label :賃料 %>
+    <%= f.label :賃料 %><br>
     <%= f.text_field :rent, id: :property_rent%>
+    <%= "円" %>
   </div>
 
   <div class="field">
-    <%= f.label :住所 %>
+    <%= f.label :住所 %><br>
     <%= f.text_field :address, id: :property_address%>
   </div>
 
   <div class="field">
-    <%= f.label :築年数 %>
+    <%= f.label :築年数 %><br>
     <%= f.text_field :age, id: :property_age%>
+    <%= "年" %>
   </div>
 
   <div class="field">
-    <%= f.label :備考 %>
-    <%= f.text_field :name, id: :property_remarks%>
+    <%= f.label :備考 %><br>
+    <%= f.text_area :remarks, id: :property_remarks%>
   </div>
 
+  <hr>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit '登録する' %>
   </div>
 
 <% end %>
+
+<%= link_to '戻る', propertys_path %>

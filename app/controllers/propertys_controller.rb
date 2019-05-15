@@ -19,8 +19,12 @@ class PropertysController < ApplicationController
     end
   end
 
-
   def destroy
+    if @property.destroy
+      redirect_to propertys_path, notice: '物件削除に成功しました！'
+    else
+      render 'index'
+    end
   end
 
   def show; end
