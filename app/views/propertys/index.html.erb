@@ -1,2 +1,26 @@
-<h1>Propertys#index</h1>
-<p>Find me in app/views/propertys/index.html.erb</p>
+<h2><%= notice %></h2>
+<h1>物件一覧</h1>
+
+  # <table class="table table-striped table-responsive table-condensed table-hover">
+  <table>
+      <th>名前</th>
+      <th>賃料</th>
+      <th>住所</th>
+      <th>年数期限</th>
+      <th>備考</th>
+  <% @propertys.each do |property| %>
+    <tr class="danger">
+      <td><%= property.name %></td>
+      <td><%= property.rent %></td>
+      <td><%= property.address %></td>
+      <td><%= property.age %></td>
+      <td><%= property.remarks %></td>
+
+      <td><%= link_to '詳細画面', property_path(property.id), class: 'btn btn-primary' %></td>
+      <td><%= link_to '編集画面', edit_property_path(property.id), data: {confirm: '編集確認'}, class: 'btn btn-warning' %></td>
+      <td><%= link_to '削除', property_path(property.id), method: :delete ,data: {confirm: "削除確認"}, class: 'btn btn-danger' %></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <%= link_to  '物件登録', new_property_path %>
