@@ -1,19 +1,28 @@
-<%= form_with(model:property, local: true) do |f| %>
-  <% if property.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(property.errors.count, "件") %> のエラーがあります。</h2>
-
-      <ul>
-        <% property.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for property,url: propertys_path do |f| %>
 
   <div class="field">
-    <%= f.label :name %>
+    <%= f.label :物件名 %>
     <%= f.text_field :name, id: :property_name%>
+  </div>
+
+  <div class="field">
+    <%= f.label :賃料 %>
+    <%= f.text_field :rent, id: :property_rent%>
+  </div>
+
+  <div class="field">
+    <%= f.label :住所 %>
+    <%= f.text_field :address, id: :property_address%>
+  </div>
+
+  <div class="field">
+    <%= f.label :築年数 %>
+    <%= f.text_field :age, id: :property_age%>
+  </div>
+
+  <div class="field">
+    <%= f.label :備考 %>
+    <%= f.text_field :name, id: :property_remarks%>
   </div>
 
   <div class="actions">
