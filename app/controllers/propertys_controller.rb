@@ -27,6 +27,14 @@ class PropertysController < ApplicationController
     end
   end
 
+  def update
+    if @property.update(property_params)
+      redirect_to propertys_path, notice: '物件編集に成功しました！'
+    else
+      render 'edit'
+    end
+  end
+
   def show; end
 
   def edit; end
