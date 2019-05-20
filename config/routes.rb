@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'propertys#index'
-  # resources :propertys, only: [:index,:new,:show,:destroy,:edit]
-  resources :propertys
+  root 'properties#index'
+  # resources :properties, only: [:index,:new,:show,:destroy,:edit]
+  resources :properties
 end
