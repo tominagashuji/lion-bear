@@ -7,13 +7,13 @@
 <hr>
 
 <h2>最寄り駅１</h2>
-<p>路線名</p>
-<p>駅名</p>
-<p>徒歩分数</p>
+<p>路線名：<%= @property.stations.route %></p>
+<p>駅名：<%= @property.stations.name %></p>
+<p>徒歩分数：<%= @property.stations.toho %></p>
 <h2>最寄り駅２</h2>
 <p>路線名</p>
 <p>駅名</p>
 <p>徒歩分数</p>
 
 <%= link_to '編集', edit_property_path(@property) %>
-<%= link_to '戻る', propertys_path %>
+<%= link_to '戻る', properties_path %>
