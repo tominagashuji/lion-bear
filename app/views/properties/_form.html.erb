@@ -7,7 +7,7 @@
 
   <div class="field">
     <%= f.label :賃料 %><br>
-    <%= f.text_field :rent, id: :property_rent%>
+    <%= f.number_field :rent, id: :property_rent%>
     <%= "円" %>
   </div>
 
@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= f.label :築年数 %><br>
-    <%= f.text_field :age, id: :property_age%>
+    <%= f.number_field :age, id: :property_age%>
     <%= "年" %>
   </div>
 
@@ -29,28 +29,44 @@
 
   <hr>
 
-  <h3>最寄り駅1</h3>
+  <h3>最寄り駅１</h3>
   <%= f.fields_for :stations, property.stations.build do |c| %>
 
     <div class="field">
       <%= c.label :路線名 %><br>
-      <%= c.text_field :route, id: :station_route%>
+      <%= c.text_field :route, id: :stations_route%>
     </div>
 
     <div class="field">
       <%= c.label :駅名 %><br>
-      <%= c.text_field :name, id: :station_name%>
+      <%= c.text_field :name, id: :stations_name%>
     </div>
 
     <div class="field">
       <%= c.label :徒歩分数 %><br>
-      <%= c.text_field :toho, id: :station_toho%>
+      <%= c.number_field :toho, id: :stations_toho%>
       <%= "分" %>
     </div>
-
   <% end %>
 
-  <h3>最寄り駅2</h3>
+  <%= f.fields_for :stations, property.stations.build do |c| %>
+    <h3>最寄り駅２</h3>
+    <div class="field">
+      <%= c.label :路線名 %><br>
+      <%= c.text_field :route, id: :stations_route%>
+    </div>
+
+    <div class="field">
+      <%= c.label :駅名 %><br>
+      <%= c.text_field :name, id: :stations_name%>
+    </div>
+
+    <div class="field">
+      <%= c.label :徒歩分数 %><br>
+      <%= c.text_field :toho, id: :stations_toho%>
+      <%= "分" %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit '登録する' %>
