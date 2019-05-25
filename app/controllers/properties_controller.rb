@@ -7,12 +7,10 @@ class PropertiesController < ApplicationController
 
   def new
     @property = Property.new
-    # @property = Property.stations.build(property_params)
   end
 
   def create
     @property = Property.create(property_params)
-    # @property = Property.stations.build(property_params)
 
     if @property.save
       redirect_to properties_path, notice: '物件登録に成功しました！'
@@ -46,7 +44,9 @@ class PropertiesController < ApplicationController
   def property_params
     params.require(:property).permit(
       :name, :rent, :address, :age, :remarks,
-      :stations_attributes =>[:id, :route, :name, :toho])
+      # :stations_attributes =>[:id, :route, :name, :toho])
+      stations_attributes: [:id, :route, :name, :toho],
+    )
   end
 
   def set_property
