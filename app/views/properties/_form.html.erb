@@ -33,7 +33,9 @@
   <%= f.fields_for :stations do |c| %>
   <%# .build は new と同じ機能を持つ。なので new アクションの時に利用すると空欄で表示されて良い。
     # edit の時は new ではないので定義すると空欄になってしまう。本来はアソシエーションで紐づくstationsが欲しい。
-    # なので、コントローラーで new の時に property.stations.build が生まれるようにしてあげる %>
+    # なので、コントローラーで new の時に property.stations.build が生まれるようにしてあげる
+    # fields_for は自動でループ処理を実施してくれる
+    # edit の時は property を元に紐つく :stations を自動で引っ張ってくれる %>
     <%#= f.fields_for :stations, property.stations.build do |c| %>
     <h3>最寄り駅 <%= x %> </h3>
     <% x += 1 %>
