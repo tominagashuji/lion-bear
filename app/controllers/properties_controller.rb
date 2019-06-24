@@ -7,6 +7,9 @@ class PropertiesController < ApplicationController
 
   def new
     @property = Property.new
+    # プロパティに紐づく stations 情報を作りたいので @proterty.stations.build を new アクションで作成する。
+    # また、今回の課題は2つの stations 情報が欲しいので 2.times で複数個作成する。
+    2.times {@property.stations.build}
   end
 
   def create

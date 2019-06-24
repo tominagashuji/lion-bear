@@ -29,8 +29,14 @@
 
   <hr>
 
-  <h3>最寄り駅１</h3>
-  <%= f.fields_for :stations, property.stations.build do |c| %>
+  <% x = 1 %>
+  <%= f.fields_for :stations do |c| %>
+  <%# .build は new と同じ機能を持つ。なので new アクションの時に利用すると空欄で表示されて良い。
+    # edit の時は new ではないので定義すると空欄になってしまう。本来はアソシエーションで紐づくstationsが欲しい。
+    # なので、コントローラーで new の時に property.stations.build が生まれるようにしてあげる %>
+    <%#= f.fields_for :stations, property.stations.build do |c| %>
+    <h3>最寄り駅 <%= x %> </h3>
+    <% x += 1 %>
 
     <div class="field">
       <%= c.label :路線名 %><br>
@@ -45,25 +51,6 @@
     <div class="field">
       <%= c.label :徒歩分数 %><br>
       <%= c.number_field :toho, id: :stations_toho%>
-      <%= "分" %>
-    </div>
-  <% end %>
-
-  <%= f.fields_for :stations, property.stations.build do |c| %>
-    <h3>最寄り駅２</h3>
-    <div class="field">
-      <%= c.label :路線名 %><br>
-      <%= c.text_field :route, id: :stations_route%>
-    </div>
-
-    <div class="field">
-      <%= c.label :駅名 %><br>
-      <%= c.text_field :name, id: :stations_name%>
-    </div>
-
-    <div class="field">
-      <%= c.label :徒歩分数 %><br>
-      <%= c.text_field :toho, id: :stations_toho%>
       <%= "分" %>
     </div>
   <% end %>
